@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+body{
+    background:#fce4ec;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #000 !important;
+    text-decoration: none !important;
+}
+header{
+    top: 0;
+    position: sticky;
+    margin-bottom: 0;
+    background: #880e4f;
+}
+form{
+    width: 90%;
+    max-width: 568px;
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 4px;
+}
+
+nav{
+    background: #880e4f;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    color: #fff;
+}
+.nav-items{
+    display: flex;
+    gap: 50px;
+}
+.nav-items li{
+    list-style: none;
+}
+nav a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.pets{
+    padding: 20px;
+}
+.pet-container{
+    width: 90%;
+    max-width: 868px;
+    margin: 0 auto;
+}
+
+.pet{
+    background: #fff;
+    padding: 20px 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+.pet:hover{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.pet-header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px #fce4ec solid;
+}
+.description{
+    padding: 5px 0;
+    border-bottom: 2px #fce4ec solid;
+}
+.header-left{
+    display: flex;
+    gap: 5px;
+}
+.btn-adopt{
+    color: #fff;
+    background: #1de9b6;
+    padding: 10px 30px;
+    border-radius: 3px;
+    
+}
+.pill{
+    background: #fce4ec;
+    padding: 2px 7px;
+    border-radius: 20px;
+}
+
+#exTab1 .tab-content {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  }
+  
+  #exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  }
+  
+  /* remove border radius for the tab */
+  
+  #exTab1 .nav-pills > li > a {
+    border-radius: 0;
+  }
+  
+  /* change border radius for the tab , apply corners on top*/
+  
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+  }
+  
+  #exTab3 .tab-content {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+  }
+  
