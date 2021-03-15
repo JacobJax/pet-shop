@@ -79,4 +79,32 @@
             ];
         }
 
+        public static function getCPets($id) {
+            $pdo = establishCONN();
+    
+            $stmt = $pdo->prepare(
+                "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, category.c_name, users.username
+                FROM pets, category, users
+                WHERE pets.author_id = :id AND pets.category_id = category.id AND users.id = pets.author_id"
+            );
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+    
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public static function getAPets($id) {
+            $pdo = establishCONN();
+    
+            $stmt = $pdo->prepare(
+                "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, category.c_name, users.username
+                FROM pets, category, users
+                WHERE pets.buyer_id = :id AND pets.category_id = category.id AND users.id = pets.author_id"
+            );
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+    
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
     }

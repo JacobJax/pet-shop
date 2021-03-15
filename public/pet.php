@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uid = $_POST['uid'];
     Pet::adoptPet((int)$pid, (int)$uid);
 
-    header('Location: index.php');
+    header("Location: index.php");
 }
 ?>
 

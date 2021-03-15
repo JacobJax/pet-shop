@@ -37,7 +37,7 @@ Class Pet{
         $pdo = establishCONN();
 
         $stmt = $pdo->prepare(
-            "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, category.c_name, users.username
+            "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, category.c_name, users.username
             FROM pets, category, users
             WHERE pets.status = false AND pets.category_id = category.id AND users.id = pets.author_id
             ORDER BY pets.id DESC"
@@ -51,7 +51,7 @@ Class Pet{
         $pdo = establishCONN();
 
         $stmt = $pdo->prepare(
-            "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, category.c_name, users.username
+            "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, category.c_name, users.username
             FROM pets, category, users
             WHERE pets.id = :id AND pets.category_id = category.id AND users.id = pets.author_id"
         );
@@ -62,6 +62,9 @@ Class Pet{
     }
 
     public static function adoptPet($pid, $uid) {
+
+        Pet::changeAdoptStatus($pid, $uid);
+
         $pdo = establishCONN();
 
         $stmt = $pdo->prepare("INSERT INTO adopted (pet_id, user_id) VALUES (:pid, :uid)");
@@ -69,16 +72,18 @@ Class Pet{
         $stmt->bindValue(':uid', $uid);
 
         $stmt->execute();
-
-        Pet::changeAdoptStatus($pid);
+        
     }
 
-    private static function changeAdoptStatus($pid) {
+    private static function changeAdoptStatus($pid, $uid) {
         $pdo = establishCONN();
 
-        $stmt = $pdo->prepare("UPDATE pets SET status = :st WHERE id = :id");
+        $stmt = $pdo->prepare("UPDATE pets SET status = :st, buyer_id = :uid WHERE id = :pid");
         $stmt->bindValue(':st', true);
-        $stmt->bindValue(':id', $pid);
+        $stmt->bindValue(':uid', $uid);
+        $stmt->bindValue(':pid', $pid);
+
+        $stmt->execute();
     }
 
 }

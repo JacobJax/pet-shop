@@ -124,3 +124,21 @@ nav a{
     padding : 5px 15px;
   }
   
+
+/* ul{
+    display: flex;
+    border-bottom: 1px solid;
+}
+li{
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+} */
+
+[data-tab-content]{
+    display: none;
+    padding-left: 50px;
+}
+.current[data-tab-content]{
+    display: block;
+}

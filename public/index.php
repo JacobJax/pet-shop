@@ -23,7 +23,17 @@ $pets = Pet::getPets();
                             <h3><?php echo $pet['pet_name'] ?></h3>
                             <small><p class="innactive pill"><?php echo $pet['c_name'] ?></p></small>    
                         </div>
-                        <p class="author"><b><?php echo $pet['username'] ?></b></p>
+                        <p class="author">
+                            <b>
+                                <?php if(isset($_SESSION['uid'])) {?>
+                                    <?php 
+                                        echo $pet['author_id'] == $_SESSION['uid'] ? "You" : $pet['username']
+                                    ?>
+                                <?php } else {?>
+                                    <?php echo $pet['username'] ?>
+                                <?php } ?>
+                            </b>
+                        </p>
                     </div>
                     <div class="description">
                         <p><?php echo $pet['pet_description'] ?></p>
