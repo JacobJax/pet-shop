@@ -10,7 +10,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uid = $_POST['uid'];
     Pet::adoptPet((int)$pid, (int)$uid);
 
-    header("Location: index.php");
+    session_start();
+    header("Location: pets.php?id=" . $_SESSION['uid'] . "#added");
 }
 ?>
 

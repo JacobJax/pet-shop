@@ -13,14 +13,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pet = new Pet($pname, $p_age, $pcatg, $uid, $pdesc);
     $pet->addPet();
     
-    header('Location: index.php');
+    session_start();
+    header("Location: pets.php?id=" . $_SESSION['uid'] . "#created");
 }
 
 ?>
 
 <?php include_once "./includes/header.php" ?>
 <section class="add">
-    <form action="" method="POST">
+    <form action="" method="POST" class="i-form">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="pname">Pet name</label>

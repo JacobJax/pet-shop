@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include_once "./includes/header.php" ?>
 <section class="add">
     <div class="container">
-        <form action="" method="POST">
+        <form action="" method="POST" class="i-form">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="fname">First Name</label>

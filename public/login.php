@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include_once "./includes/header.php" ?>
 <section class="add">
     <div class="container">
-        <form action="" method="POST">
+        <form action="" method="POST" class="i-form">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" name="email">

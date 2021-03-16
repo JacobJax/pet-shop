@@ -21,7 +21,7 @@ header{
     margin-bottom: 0;
     background: #880e4f;
 }
-form{
+.i-form{
     width: 90%;
     max-width: 568px;
     background: #fff;
@@ -124,16 +124,6 @@ nav a{
     padding : 5px 15px;
   }
   
-
-/* ul{
-    display: flex;
-    border-bottom: 1px solid;
-}
-li{
-    list-style: none;
-    padding: 10px;
-    cursor: pointer;
-} */
 
 [data-tab-content]{
     display: none;
