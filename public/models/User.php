@@ -85,7 +85,7 @@
             $stmt = $pdo->prepare(
                 "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, category.c_name, users.username
                 FROM pets, category, users
-                WHERE pets.author_id = :id AND pets.category_id = category.id AND users.id = pets.author_id"
+                WHERE pets.author_id = :id AND pets.category_id = category.c_id AND users.id = pets.author_id"
             );
             $stmt->bindValue(':id', $id);
             $stmt->execute();
@@ -99,7 +99,7 @@
             $stmt = $pdo->prepare(
                 "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, category.c_name, users.username
                 FROM pets, category, users
-                WHERE pets.buyer_id = :id AND pets.category_id = category.id AND users.id = pets.author_id"
+                WHERE pets.buyer_id = :id AND pets.category_id = category.c_id AND users.id = pets.author_id"
             );
             $stmt->bindValue(':id', $id);
             $stmt->execute();

@@ -4,6 +4,8 @@ require_once "./models/Pet.php";
 
 $uid = $_GET['id'];
 
+$categories = Pet::getCategories();
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pname = $_POST['pname'];
     $p_age = $_POST['p_age'];
@@ -33,9 +35,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
         <div class="form-group">
-            <label for="p-age">Category id</label>
-            <input type="number" class="form-control" name="pcatg">
-            <small class="form-text text-muted"><b>1: Dog, 2: Cat, 3: Fish, 4: Bird, 5: Other</b></small>
+            <label for="p-age">Pet Category</label>
+            <select class="form-control" name="pcatg">
+                <?php foreach($categories as $type) { ?>
+                        <option value=<?php echo $type["c_id"] ?> ><?php echo $type["c_name"] ?></option>
+                <?php } ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="p-age">Pet description</label>

@@ -39,7 +39,7 @@ Class Pet{
         $stmt = $pdo->prepare(
             "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, category.c_name, users.username
             FROM pets, category, users
-            WHERE pets.status = false AND pets.category_id = category.id AND users.id = pets.author_id
+            WHERE pets.status = false AND pets.category_id = category.c_id AND users.id = pets.author_id
             ORDER BY pets.id DESC"
         );
         $stmt->execute();
@@ -53,7 +53,7 @@ Class Pet{
         $stmt = $pdo->prepare(
             "SELECT pets.id, pets.pet_name, pets.age, pets.pet_description, pets.created_on, pets.author_id, pets.buyer_id, pets.category_id, category.c_name, users.username
             FROM pets, category, users
-            WHERE pets.id = :id AND pets.category_id = category.id AND users.id = pets.author_id"
+            WHERE pets.id = :id AND pets.category_id = category.c_id AND users.id = pets.author_id"
         );
         $stmt->bindValue(':id', $id);
         $stmt->execute();
@@ -129,6 +129,15 @@ Class Pet{
         $stmt = $pdo->prepare("DELETE FROM pets WHERE id = :id");
         $stmt->bindValue(':id', $id);
         $stmt->execute();
+    }
+
+    public static function getCategories(){
+        $pdo = establishCONN();
+
+        $stmt = $pdo->prepare("SELECT * FROM category");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
