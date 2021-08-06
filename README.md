@@ -26,7 +26,7 @@ Users can as well place a pet for adoption and vice versa.
 
 ## Installation 💾
 1. Clone the [project](https://github.com/JacobJax/pet-shop.git) to **htdocs** folder in xampp by running: 
-`git clone https://github.com/JacobJax/pet-shop.git`
+`git clone https://github.com/JacobJax/pet-shop.git` to `C:\\xampp\htdocs`
 
 1. Open xampp and start *Apache* and *MySQL*
 
