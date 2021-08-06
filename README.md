@@ -14,6 +14,7 @@ Users can as well place a pet for adoption and vice versa.
 
 * HTML
 * CSS
+* JavaScript
 * PHP
 * MySQL
 
