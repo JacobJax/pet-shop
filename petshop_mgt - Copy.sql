@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `petshop_mgt`
+-- Database: `b5g3c85iyr9rlahnbjka`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `adopted` (
   `pet_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `addoption_date` date NOT NULL DEFAULT current_timestamp()
+  `addoption_date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
