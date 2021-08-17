@@ -2,7 +2,7 @@
 ![homepage](ill/home.PNG)
 
 
-Pets shop is a simple **PHP CRUD** application for adopting pets.
+Pets shop is a simple **PHP CRUD** application for adopting pets. View live demo [here](https://pet-shop-sys.herokuapp.com/)
 
  Users log into the site, browse through the available pets, chose a pet and adopt one.
 
