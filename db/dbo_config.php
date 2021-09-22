@@ -5,7 +5,13 @@
         // $pdo = new PDO('mysql:host=localhost;port=3306;dbname=petshop_mgt', 'root', '');
         
         // prod_db
-        $pdo = new PDO('mysql:host=b5g3c85iyr9rlahnbjka-mysql.services.clever-cloud.com;port=3306;dbname=b5g3c85iyr9rlahnbjka', 'us1l0idjdlkamwd3', 'tuSu4Wo6FMXFmugZ2gAm');
+        $db_host = getenv('DB_HOST');
+        $db_port = getenv('DB_PORT');
+        $db_name = getenv('DB_NAME');
+        $db_user = getenv('DB_USER');
+        $db_pwd = getenv('DB_PWD');
+
+        $pdo = new PDO("mysql:host=$db_host;port=$db_port;dbname=$db_name", "$db_user" , "$db_pwd");
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
